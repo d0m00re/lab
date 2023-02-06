@@ -1,11 +1,26 @@
 import entities from "../../entities";
 import JackLapiquetteDb from "./../../services/JackLapiquette.db";
+import { validJoin, generateId } from "../../services/utils.db";
+
 
 class BlogsModel extends JackLapiquetteDb {
     constructor(db : entities.IDb) {
         super(db);
     }
 
+    public add(data : Omit<entities.IBlog, 'id'>) : entities.IBlog | undefined {
+        let encodeData = {
+            ...data,
+            id : generateId(this.db.blogs)
+        }
+        //
+        if (!validJoin(this.db.users, data.userId)) {
+            return undefined;
+        }
+
+        // check if userId exist or not
+        return encodeData;
+    }
     /*
     // add
     public add(username : string) : entities.IUser {

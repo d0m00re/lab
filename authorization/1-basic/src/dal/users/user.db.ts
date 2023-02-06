@@ -1,5 +1,6 @@
 import entities from "./../../entities";
 import JackLapiquetteDb from "./../../services/JackLapiquette.db";
+import {generateId} from "./../../services/utils.db";
 class UserModel extends JackLapiquetteDb {
     constructor(db : entities.IDb) {
         super(db);
@@ -8,7 +9,7 @@ class UserModel extends JackLapiquetteDb {
     // add
     public add(username : string) : entities.IUser {
         let newUser = {
-            id : this.db.users.length,
+            id : generateId(this.db.users),
             username : username
         }
         this.db.users.push(newUser);
