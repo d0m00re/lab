@@ -7,6 +7,10 @@ class ArticlesModel extends JackLapiquetteDb{
         super(db);
     }
     
+    public findWtPk(id : number) : entities.IArticle | undefined {
+        return this.db.articles.find(elem => elem.id === id);
+    } 
+
     public add(data : Omit<entities.IArticle, 'id'>) : entities.IArticle | undefined {
         let encodeData = {
             ...data,

@@ -13,11 +13,15 @@ const populateModel = (dal: dalInit.DalDb) => {
     dal.Blogs.add({userId : user.id, title : "health"})
     dal.Blogs.add({userId : user.id, title : "duck life"})
 
-    dal.Articles.add({userId : 1, blogId : 1, text : "health"})
+    const blogs = dal.Blogs.findWtPk(1);
+    if (!blogs) return ;
+    dal.Articles.add({userId : 1, blogId : blogs.id, text : "health"})
 
-    dal.Comments.add({userId : 1, articleId : 0, text : "food"})
-    dal.Comments.add({userId : 1, articleId : 0, text : "adopt me"})
-    dal.Comments.add({userId : 1, articleId : 0, text : "idk"})
+    const articles = dal.Articles.findWtPk(0);
+    if (!articles) return ;
+    dal.Comments.add({userId : 1, articleId : articles.id, text : "food"})
+    dal.Comments.add({userId : 1, articleId : articles.id, text : "adopt me"})
+    dal.Comments.add({userId : 1, articleId : articles.id, text : "idk"})
 }
 
 // play

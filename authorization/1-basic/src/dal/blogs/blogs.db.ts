@@ -8,6 +8,10 @@ class BlogsModel extends JackLapiquetteDb {
         super(db);
     }
 
+    public findWtPk(id : number) : entities.IBlog | undefined {
+        return this.db.blogs.find(elem => elem.id === id);
+    } 
+
     public add(data : Omit<entities.IBlog, 'id'>) : entities.IBlog | undefined {
         let encodeData = {
             ...data,

@@ -7,6 +7,10 @@ class CommentsModel extends JackLapiquetteDb{
         super(db);
     }
 
+    public findWtPk(id : number) : entities.IComment | undefined {
+        return this.db.comments.find(elem => elem.id === id);
+    } 
+
     public add(data : Omit<entities.IComment, 'id'>) : entities.IComment | undefined {
         let encodeData = {
             ...data,
