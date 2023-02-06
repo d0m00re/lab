@@ -19,10 +19,10 @@ export interface DalDb {
 }
 
 export const initModel = (db : entities.IDb) : DalDb => {
-    let Users = _User(db);
-    let Blogs = _Blogs(db);
-    let Articles = _Articles(db);
-    let Comments = _Comments(db);
+    const Users = _User(db);
+    const Blogs = _Blogs(db);
+    const Articles = _Articles(db);
+    const Comments = _Comments(db);
     //   User.
     return {
         Users,

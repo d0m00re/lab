@@ -8,7 +8,7 @@ const populateModel = (dal: dalInit.DalDb) => {
     dal.Users.add("jack snow");
     dal.Users.add("jean snow");
 
-    let user = dal.Users.findWtPk(1);
+    const user = dal.Users.findWtPk(1);
     if (!user) return ;
     dal.Blogs.add({userId : user.id, title : "health"})
     dal.Blogs.add({userId : user.id, title : "duck life"})
