@@ -18,6 +18,9 @@ class BlogsModel extends JackLapiquetteDb {
             return undefined;
         }
 
+        // push data
+        this.db.blogs.push(encodeData);
+
         // check if userId exist or not
         return encodeData;
     }

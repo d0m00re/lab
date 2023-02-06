@@ -17,6 +17,9 @@ class ArticlesModel extends JackLapiquetteDb{
             || !validJoin(this.db.users, data.userId)) {
             return undefined;
         }
+        //push data
+        this.db.articles.push(encodeData);
+
 
         // check if userId exist or not
         return encodeData;

@@ -18,6 +18,10 @@ class CommentsModel extends JackLapiquetteDb{
             return undefined;
         }
 
+        // push data
+        this.db.comments.push(encodeData);
+
+
         // check if userId exist or not
         return encodeData;
     }
