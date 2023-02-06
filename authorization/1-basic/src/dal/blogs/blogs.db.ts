@@ -1,10 +1,12 @@
-import entities from "./../../entities";
+import entities from "../../entities";
 import JackLapiquetteDb from "./../../services/JackLapiquette.db";
-class UserModel extends JackLapiquetteDb {
+
+class BlogsModel extends JackLapiquetteDb {
     constructor(db : entities.IDb) {
         super(db);
     }
 
+    /*
     // add
     public add(username : string) : entities.IUser {
         let newUser = {
@@ -26,6 +28,8 @@ class UserModel extends JackLapiquetteDb {
     // delete
 
     // purge
+    */
 }
-export {UserModel};
-export default (db : entities.IDb) => new UserModel(db);
+
+export {BlogsModel};
+export default (db : entities.IDb) => new BlogsModel(db);
