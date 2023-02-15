@@ -28,6 +28,16 @@ class ArticlesModel extends JackLapiquetteDb{
         // check if userId exist or not
         return encodeData;
     }
+
+    public delete(pk : number) : entities.IArticle | undefined {
+        let index = this.db.articles.findIndex(e => e.id === pk);
+
+        console.log(index)
+        if (index === -1) return undefined;
+        let store = this.db.articles[index];
+        this.db.blogs.splice(index);
+        return store;
+    }
 }
 
 export {ArticlesModel}

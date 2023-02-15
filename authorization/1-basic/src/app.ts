@@ -33,6 +33,11 @@ const play = (dal: dalInit.DalDb) => {
     console.log(JSON.stringify(db.articles));
     console.log(JSON.stringify(db.comments));
 
+    dal.Comments.delete(1);
+    //dal.Comments.delete(2);
+    console.log("")
+    console.log(JSON.stringify(db.comments))
+
 }
 
 let dal = dalInit.initModel(LapiquetteDb);

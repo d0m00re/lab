@@ -25,7 +25,14 @@ class UserModel extends JackLapiquetteDb {
         return this.db.users;
     }
     // delete
+    public delete(pk : number) : entities.IUser | undefined {
+        let index = this.db.users.findIndex(e => e.id === pk);
 
+        if (index === -1) return undefined;
+        let store = this.db.users[index];
+        this.db.blogs.splice(index);
+        return store;
+    }
     // purge
 }
 export {UserModel};

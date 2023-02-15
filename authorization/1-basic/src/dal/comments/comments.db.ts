@@ -16,18 +16,24 @@ class CommentsModel extends JackLapiquetteDb{
             ...data,
             id : generateId(this.db.articles)
         }
-        //
         if (!validJoin(this.db.articles, data.articleId)
             || !validJoin(this.db.users, data.userId)) {
             return undefined;
         }
-
         // push data
         this.db.comments.push(encodeData);
-
-
         // check if userId exist or not
         return encodeData;
+    }
+
+    public delete(pk : number) : entities.IComment | undefined {
+        let index = this.db.comments.findIndex(e => e.id === pk);
+
+        if (index === -1) return undefined;
+        //
+        let store = this.db.comments[index];
+        this.db.comments.splice(index, 1);
+        return store;
     }
 }
 

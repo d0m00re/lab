@@ -28,29 +28,15 @@ class BlogsModel extends JackLapiquetteDb {
         // check if userId exist or not
         return encodeData;
     }
-    /*
-    // add
-    public add(username : string) : entities.IUser {
-        let newUser = {
-            id : this.db.users.length,
-            username : username
-        }
-        this.db.users.push(newUser);
-        return newUser;
-    }
-    // find one with pk
-    public findWtPk(id : number) : entities.IUser | undefined {
-        return this.db.users.find(elem => elem.id === id);
-    } 
 
-    // find all
-    public findAll(user : Partial<entities.IUser>) {
-        return this.db.users;
-    }
-    // delete
+    public delete(pk : number) : entities.IBlog | undefined {
+        let index = this.db.blogs.findIndex(e => e.id === pk);
 
-    // purge
-    */
+        if (index === -1) return undefined;
+        let store = this.db.blogs[index];
+        this.db.blogs.splice(index);
+        return store;
+    }
 }
 
 export {BlogsModel};
